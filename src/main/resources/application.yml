@@ -6,7 +6,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/user?serverTimezone=Asia/Shanghai
     username: root
-    password: nzf2626496
+    password: Wxl5211314.0.
   application:
     name: user #服务名称
   cloud: #要注意缩进，错了会无法注册
