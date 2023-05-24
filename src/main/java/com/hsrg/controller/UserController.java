@@ -18,7 +18,6 @@ import org.springframework.stereotype.Controller;
  * @since 2023-05-19
  */
 @RestController
-@RequestMapping("/user")
 public class UserController {
 
     @Autowired
@@ -30,7 +29,7 @@ public class UserController {
         return Result.success();
     }
 
-    @PostMapping("/updateOneUser")
+    @PostMapping("/user/updateOneUser")
     public Result updateOneUser(@RequestBody User user){
         userService.updateOneUser(user);
         return Result.success();
@@ -42,7 +41,7 @@ public class UserController {
         return Result.success();
     }
 
-    @PostMapping("/selectByUserId")
+    @PostMapping("/user/selectByUserId")
     public Result selectByUserId(@RequestBody User user){
         return Result.success(userService.selectByUserId(user.getUserId()));
     }
