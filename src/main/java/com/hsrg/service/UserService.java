@@ -1,6 +1,6 @@
 package com.hsrg.service;
 
-import com.hsrg.entity.User;
+import com.hsrg.pojo.User;
 
 /**
  * <p>

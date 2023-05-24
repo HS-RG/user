@@ -1,6 +1,6 @@
 package com.hsrg.service;
 
-import com.hsrg.entity.Collection;
+import com.hsrg.pojo.Collection;
 
 /**
  * <p>

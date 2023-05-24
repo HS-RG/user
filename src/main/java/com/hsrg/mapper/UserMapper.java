@@ -1,6 +1,6 @@
 package com.hsrg.mapper;
 
-import com.hsrg.entity.User;
+import com.hsrg.pojo.User;
 import org.apache.ibatis.annotations.*;
 
 /**

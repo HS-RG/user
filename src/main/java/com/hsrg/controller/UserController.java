@@ -1,13 +1,11 @@
 package com.hsrg.controller;
 
 
-import com.hsrg.entity.Result;
-import com.hsrg.entity.User;
+import com.hsrg.pojo.Result;
+import com.hsrg.pojo.User;
 import com.hsrg.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import org.springframework.stereotype.Controller;
 
 /**
  * <p>

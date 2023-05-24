@@ -1,6 +1,6 @@
 package com.hsrg.service.impl;
 
-import com.hsrg.entity.User;
+import com.hsrg.pojo.User;
 import com.hsrg.mapper.UserMapper;
 import com.hsrg.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

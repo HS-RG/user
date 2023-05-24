@@ -1,6 +1,6 @@
 package com.hsrg.service.impl;
 
-import com.hsrg.entity.Collection;
+import com.hsrg.pojo.Collection;
 import com.hsrg.mapper.CollectionMapper;
 import com.hsrg.service.CollectionService;
 import org.springframework.stereotype.Service;
