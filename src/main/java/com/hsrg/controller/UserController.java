@@ -1,13 +1,11 @@
 package com.hsrg.controller;
 
 
-import com.hsrg.entity.Result;
-import com.hsrg.entity.User;
+import com.hsrg.pojo.Result;
+import com.hsrg.pojo.User;
 import com.hsrg.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import org.springframework.stereotype.Controller;
 
 /**
  * <p>
@@ -18,7 +16,6 @@ import org.springframework.stereotype.Controller;
  * @since 2023-05-19
  */
 @RestController
-@RequestMapping("/user")
 public class UserController {
 
     @Autowired
@@ -30,7 +27,7 @@ public class UserController {
         return Result.success();
     }
 
-    @PostMapping("/updateOneUser")
+    @PostMapping("/user/updateOneUser")
     public Result updateOneUser(@RequestBody User user){
         userService.updateOneUser(user);
         return Result.success();
@@ -42,9 +39,16 @@ public class UserController {
         return Result.success();
     }
 
-    @PostMapping("/selectByUserId")
+    @PostMapping("/user/selectByUserId")
     public Result selectByUserId(@RequestBody User user){
         return Result.success(userService.selectByUserId(user.getUserId()));
     }
+
+    //使用通配符搜索
+    @PostMapping("/user/listByNickname")
+    public Result listByNickname(@RequestParam(required = false) String nickname,@RequestParam Integer pageNumber,@RequestParam Integer pageSize) {
+        return Result.success(userService.listByNickname(nickname ,pageNumber ,pageSize));
+    }
+
 }
 

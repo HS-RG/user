@@ -1,6 +1,6 @@
 package com.hsrg.service;
 
-import com.hsrg.entity.Collection;
+import com.hsrg.pojo.Collection;
 
 /**
  * <p>
@@ -12,4 +12,6 @@ import com.hsrg.entity.Collection;
  */
 public interface CollectionService {
 
+    void createCollection(Collection collection);
+    void deleteCollection(Collection collection);
 }

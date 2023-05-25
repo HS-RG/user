@@ -1,6 +1,8 @@
 package com.hsrg.service;
 
-import com.hsrg.entity.User;
+import com.hsrg.pojo.User;
+
+import java.util.List;
 
 /**
  * <p>
@@ -18,4 +20,6 @@ public interface UserService {
     void deleteOneUser(Long userId);
 
     User selectByUserId(Long userId);
+
+    List<User> listByNickname(String nickname, Integer pageNumber, Integer pageSize);
 }
