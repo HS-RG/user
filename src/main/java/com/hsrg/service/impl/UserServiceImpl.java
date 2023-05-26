@@ -1,6 +1,8 @@
 package com.hsrg.service.impl;
 
 import com.github.pagehelper.PageHelper;
+import com.hsrg.mapper.CollectionMapper;
+import com.hsrg.pojo.Collection;
 import com.hsrg.pojo.User;
 import com.hsrg.mapper.UserMapper;
 import com.hsrg.service.UserService;
@@ -22,6 +24,8 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
+    @Autowired
+    private CollectionMapper collectionMapper;
 
     @Override
     public void initOneUser(User user) {
@@ -36,7 +40,16 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void deleteOneUser(Long userId) {
-        userMapper.deleteOneUser(userId);
+        User user = new User();
+        user.setUpdateTime(LocalDateTime.now());
+        user.setUserId(userId);
+        user.setUsername(userId.toString());
+        user.setNickname("账号已注销");
+        user.setImageUrl("delete");
+        userMapper.upDataUser(user);
+        Collection collection =new Collection();
+        collection.setUserId(userId);
+        collectionMapper.deleteCollection(collection);
     }
 
     @Override

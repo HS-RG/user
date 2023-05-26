@@ -21,8 +21,6 @@ public interface UserMapper {
             "VALUES (#{userId},#{username},#{nickname},#{imageUrl},#{updateTime},#{createTime})")
     public void insertOneUser(User user);
 
-    @Update("update user set nickname = #{nickname} ,image_url = #{imageUrl} ,update_time = #{updateTime} " +
-            "where user_id = #{userId} ")
     public void upDataUser(User user);
 
     @Delete("delete from user where user_id = #{userId}")

@@ -1,9 +1,11 @@
 package com.hsrg.mapper;
 
 import com.hsrg.pojo.Collection;
-import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
 
 /**
  * <p>
@@ -19,8 +21,11 @@ public interface CollectionMapper {
     "values (#{userId} ,#{fileId} ,#{createTime})")
     public void createCollection(Collection collection);
 
-    @Delete("delete from collection where user_id = #{userId} and file_id = #{fileId}")
     public void deleteCollection(Collection collection);
 
 
+    public List<Collection> listCollectionByUserId(Long userId, Integer pageNumber, Integer pageSize);
+
+    @Select("select count(*) from collection where file_id = #{fileId}")
+    public Long countCollectionByFile(String fileId);
 }
