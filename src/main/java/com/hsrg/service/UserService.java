@@ -22,7 +22,7 @@ public interface UserService {
 
     User selectByUserId(Long userId);
 
-    List<User> listByNickname(String nickname, Integer pageNumber, Integer pageSize);
+    List<Object> listByNickname(String nickname, Integer pageNumber, Integer pageSize);
 
     User getMyDetail(String jwt);
 }

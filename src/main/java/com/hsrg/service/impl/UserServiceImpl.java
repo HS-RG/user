@@ -13,6 +13,7 @@ import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -63,10 +64,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> listByNickname(String nickname, Integer pageNumber, Integer pageSize) {
+    public List<Object> listByNickname(String nickname, Integer pageNumber, Integer pageSize) {
         PageHelper.startPage(pageNumber ,pageSize);
 
-        List<User> list = userMapper.listByNickname(nickname ,pageNumber ,pageSize);
+        List<Object> list = userMapper.listByNickname(nickname ,pageNumber ,pageSize);
+        Map map = new HashMap<String,Integer>();
+        map.put(new String("length"),userMapper.countByNickname(nickname));
+        list.add(map);
         return list;
     }
 
@@ -78,7 +82,5 @@ public class UserServiceImpl implements UserService {
         return userMapper.selectByUserId(userId);
 
     }
-
-
 
 }

@@ -29,6 +29,8 @@ public interface UserMapper {
     @Select("select * from user where user_id = #{userId}")
     public User selectByUserId(Long userId);
 
-    public List<User> listByNickname(String nickname, Integer pageNumber, Integer pageSize);
+    public List<Object> listByNickname(String nickname, Integer pageNumber, Integer pageSize);
+
+    public Integer countByNickname (String nickname);
 
 }
