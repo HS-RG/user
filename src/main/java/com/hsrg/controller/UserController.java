@@ -7,6 +7,8 @@ import com.hsrg.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 /**
  * <p>
  *  前端控制器
@@ -48,6 +50,11 @@ public class UserController {
     @PostMapping("/user/listByNickname")
     public Result listByNickname(@RequestParam(required = false) String nickname,@RequestParam Integer pageNumber,@RequestParam Integer pageSize) {
         return Result.success(userService.listByNickname(nickname ,pageNumber ,pageSize));
+    }
+
+    @PostMapping("/user/getMyDetail")
+    public Result getMyDetail(@RequestHeader("Authorization") String jwt){
+        return Result.success(userService.getMyDetail(jwt));
     }
 
 }

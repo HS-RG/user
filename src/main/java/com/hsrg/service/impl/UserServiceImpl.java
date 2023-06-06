@@ -6,11 +6,15 @@ import com.hsrg.pojo.Collection;
 import com.hsrg.pojo.User;
 import com.hsrg.mapper.UserMapper;
 import com.hsrg.service.UserService;
+import com.hsrg.utils.JwtUtils;
+import io.jsonwebtoken.Claims;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -26,6 +30,7 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
     @Autowired
     private CollectionMapper collectionMapper;
+
 
     @Override
     public void initOneUser(User user) {
@@ -64,5 +69,18 @@ public class UserServiceImpl implements UserService {
         List<User> list = userMapper.listByNickname(nickname ,pageNumber ,pageSize);
         return list;
     }
+
+    @Override
+    public User getMyDetail(String jwt) {
+
+        Claims claims = JwtUtils.parseJWT(jwt);
+        System.out.println(claims.get("userId"));
+        User user = new User();
+        user.setUserId(1L);
+        Long userId = (Long) claims.get("userId");
+        return userMapper.selectByUserId(userId);
+    }
+
+
 
 }

@@ -3,6 +3,7 @@ package com.hsrg.service;
 import com.hsrg.pojo.User;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -22,4 +23,6 @@ public interface UserService {
     User selectByUserId(Long userId);
 
     List<User> listByNickname(String nickname, Integer pageNumber, Integer pageSize);
+
+    User getMyDetail(String jwt);
 }
