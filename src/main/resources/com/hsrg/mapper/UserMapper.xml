@@ -19,6 +19,7 @@
             <if test="nickname!=null">
                 nickname like concat('%',#{nickname},'%')
             </if>
+            and user_id != username
         </where>
     </select>
 
@@ -28,6 +29,7 @@
             <if test="nickname!=null">
                 nickname like concat('%',#{nickname},'%')
             </if>
+            and user_id != username
         </where>
     </select>
 
