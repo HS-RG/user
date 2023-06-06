@@ -17,7 +17,7 @@ public interface CollectionService {
     void createCollection(Collection collection);
     void deleteCollection(Collection collection);
 
-    List<Collection> listCollectionByUserId(Long userId,Integer pageNumber, Integer pageSize);
+    List<Object> listCollectionByUserId(Long userId,Integer pageNumber, Integer pageSize);
 
     Long countCollectionByFile(String fileId);
 }

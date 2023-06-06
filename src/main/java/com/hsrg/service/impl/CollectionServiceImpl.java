@@ -9,7 +9,9 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -37,10 +39,15 @@ public class CollectionServiceImpl implements CollectionService {
     }
 
     @Override
-    public List<Collection> listCollectionByUserId(Long userId, Integer pageNumber, Integer pageSize) {
+    public List<Object> listCollectionByUserId(Long userId, Integer pageNumber, Integer pageSize) {
         PageHelper.startPage(pageNumber,pageSize);
 
-        List<Collection> list = collectionMapper.listCollectionByUserId(userId, pageNumber, pageSize);
+
+        List<Object> list = collectionMapper.listCollectionByUserId(userId, pageNumber, pageSize);
+        Map map = new HashMap<String,Integer>();
+        map.put(new String("length"),collectionMapper.countCollectionByUserId(userId));
+        list.add(map);
+
         return list;
     }
 

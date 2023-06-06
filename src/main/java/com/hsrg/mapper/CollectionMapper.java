@@ -24,7 +24,10 @@ public interface CollectionMapper {
     public void deleteCollection(Collection collection);
 
 
-    public List<Collection> listCollectionByUserId(Long userId, Integer pageNumber, Integer pageSize);
+    public List<Object> listCollectionByUserId(Long userId, Integer pageNumber, Integer pageSize);
+
+    public Integer countCollectionByUserId(Long userId);
+
 
     @Select("select count(*) from collection where file_id = #{fileId}")
     public Long countCollectionByFile(String fileId);

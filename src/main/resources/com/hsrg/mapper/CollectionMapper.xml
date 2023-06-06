@@ -14,4 +14,9 @@
         where user_id = #{userId}
     </select>
 
+    <select id="countCollectionByUserId" resultType="java.lang.Integer">
+        select count(*) from collection
+        where user_id = #{userId}
+    </select>
+
 </mapper>
