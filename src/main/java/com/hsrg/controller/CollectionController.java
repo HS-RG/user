@@ -6,6 +6,8 @@ import com.hsrg.pojo.Result;
 import com.hsrg.pojo.User;
 import com.hsrg.service.CollectionService;
 import com.hsrg.service.UserService;
+import com.hsrg.utils.JwtUtils;
+import io.jsonwebtoken.Claims;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -40,6 +42,13 @@ public class CollectionController {
     @PostMapping("/user/listCollectionByUserId")
     public Result listCollectionByUserId(@RequestBody User user, @RequestParam Integer pageNumber, @RequestParam Integer pageSize) {
         return Result.success(CollectionService.listCollectionByUserId(user.getUserId(), pageNumber, pageSize));
+    }
+
+    @PostMapping("/user/listMyCollectionByJwt")
+    public Result listMyCollectionByJwt(@RequestHeader("Authorization") String jwt, @RequestParam Integer pageNumber, @RequestParam Integer pageSize) {
+        Claims claims = JwtUtils.parseJWT(jwt);
+        Long userId = (Long) claims.get("userId");
+        return Result.success(CollectionService.listCollectionByUserId(userId, pageNumber, pageSize));
     }
 
     @PostMapping("/user/countCollectionByFile")
