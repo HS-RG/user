@@ -74,7 +74,6 @@ public class UserServiceImpl implements UserService {
     public User getMyDetail(String jwt) {
 
         Claims claims = JwtUtils.parseJWT(jwt);
-        System.out.println(claims.get("userId"));
         User user = new User();
         user.setUserId(1L);
         Long userId = (Long) claims.get("userId");
