@@ -25,5 +25,8 @@ pagehelper:
   reasonable: true
   support-methods-arguments: true
   params: count=countSql
-
-
+#文件上传大小配置
+servlet:
+  multipart:
+    max-file-size: 10MB
+    max-request-size: 100MB

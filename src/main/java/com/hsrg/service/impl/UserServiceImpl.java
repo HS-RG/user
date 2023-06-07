@@ -1,6 +1,7 @@
 package com.hsrg.service.impl;
 
 import com.github.pagehelper.PageHelper;
+import com.hsrg.clients.FileClient;
 import com.hsrg.mapper.CollectionMapper;
 import com.hsrg.pojo.Collection;
 import com.hsrg.pojo.User;
@@ -40,7 +41,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void updateOneUser(User user) {
-        user.setUpdateTime(LocalDateTime.now());
+
         userMapper.upDataUser(user);
     }
 

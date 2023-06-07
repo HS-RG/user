@@ -39,6 +39,12 @@
             <artifactId>pagehelper-spring-boot-starter</artifactId>
             <version>1.4.2</version>
         </dependency>
+        <!--        本地feign-->
+        <dependency>
+            <groupId>com.hsrg</groupId>
+            <artifactId>feign</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
         <!--        utils-->
         <dependency>
             <groupId>com.hsrg</groupId>
