@@ -39,11 +39,12 @@ public class CollectionController {
         return Result.success();
     }
 
+
+    //下面两个list之后需要改进为pageBean减少搜索次数
     @PostMapping("/user/listCollectionByUserId")
     public Result listCollectionByUserId(@RequestBody User user, @RequestParam Integer pageNumber, @RequestParam Integer pageSize) {
         return Result.success(CollectionService.listCollectionByUserId(user.getUserId(), pageNumber, pageSize));
     }
-
     @PostMapping("/user/listMyCollectionByJwt")
     public Result listMyCollectionByJwt(@RequestHeader("Authorization") String jwt, @RequestParam Integer pageNumber, @RequestParam Integer pageSize) {
         Claims claims = JwtUtils.parseJWT(jwt);
