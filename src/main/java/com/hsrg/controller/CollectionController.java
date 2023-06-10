@@ -56,5 +56,15 @@ public class CollectionController {
     public Result countCollectionByFile(@RequestBody Collection collection) {
         return Result.success(CollectionService.countCollectionByFile(collection.getFileId()));
     }
+
+    @PostMapping("/user/determineIsCollected")
+    public Result determineIsCollected(@RequestHeader("Authorization") String jwt,@RequestParam Long fileId){
+        Claims claims = JwtUtils.parseJWT(jwt);
+        Long userId= (Long) claims.get("userId");
+        if(CollectionService.determineIsCollected(userId,fileId)!=null){
+            return Result.success(true);
+        }
+        return Result.success(false);
+    }
 }
 

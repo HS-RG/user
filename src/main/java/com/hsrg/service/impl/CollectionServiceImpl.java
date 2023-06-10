@@ -55,4 +55,9 @@ public class CollectionServiceImpl implements CollectionService {
     public Long countCollectionByFile(String fileId) {
         return collectionMapper.countCollectionByFile(fileId);
     }
+
+    @Override
+    public Boolean determineIsCollected(Long userId, Long fileId) {
+        return collectionMapper.selectByUserIdAndFileId(userId,fileId);
+    }
 }

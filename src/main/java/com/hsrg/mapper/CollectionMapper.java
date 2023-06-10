@@ -31,4 +31,7 @@ public interface CollectionMapper {
 
     @Select("select count(*) from collection where file_id = #{fileId}")
     public Long countCollectionByFile(String fileId);
+
+    @Select("select * from collection where file_id=#{fileId} and user_id=#{userId}")
+    Boolean selectByUserIdAndFileId(Long userId, Long fileId);
 }

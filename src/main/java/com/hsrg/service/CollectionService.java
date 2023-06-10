@@ -20,4 +20,6 @@ public interface CollectionService {
     List<Object> listCollectionByUserId(Long userId,Integer pageNumber, Integer pageSize);
 
     Long countCollectionByFile(String fileId);
+
+    Boolean determineIsCollected(Long userId, Long fileId);
 }
