@@ -36,12 +36,13 @@ public class UserController {
     }
 
     @PostMapping("/user/updateOneUser")
-    public Result updateOneUser(Long userId, String nickname, MultipartFile image){
+    public Result updateOneUser(@RequestParam Long userId,@RequestParam(required = false) String nickname,
+                                @RequestParam(required = false) MultipartFile image){
         User user = new User();
         user.setUserId(userId);
         user.setNickname(nickname);
         user.setUpdateTime(LocalDateTime.now());
-        if(!image.isEmpty()){
+        if(image!=null){
             user.setImageUrl(fileClient.uploadImage(image).getData().toString());
         }
         userService.updateOneUser(user);
