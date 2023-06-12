@@ -1,6 +1,7 @@
 package com.hsrg.mapper;
 
 import com.hsrg.pojo.Collection;
+import com.hsrg.pojo.File;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -24,7 +25,7 @@ public interface CollectionMapper {
     public void deleteCollection(Collection collection);
 
 
-    public List<Object> listCollectionByUserId(Long userId, Integer pageNumber, Integer pageSize);
+    public List<File> listCollectionByUserId(Long userId, Integer pageNumber, Integer pageSize);
 
     public Integer countCollectionByUserId(Long userId);
 

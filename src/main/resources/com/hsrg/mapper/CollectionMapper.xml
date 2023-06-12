@@ -9,7 +9,7 @@
         </where>
     </delete>
 
-    <select id="listCollectionByUserId" resultType="com.hsrg.pojo.Collection">
+    <select id="listCollectionByUserId" resultType="com.hsrg.pojo.File">
         select * from collection
         where user_id = #{userId}
     </select>
