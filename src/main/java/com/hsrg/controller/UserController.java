@@ -41,7 +41,7 @@ public class UserController {
         user.setUserId(userId);
         user.setNickname(nickname);
         user.setUpdateTime(LocalDateTime.now());
-        if(image != null){
+        if(!image.isEmpty()){
             user.setImageUrl(fileClient.uploadImage(image).getData().toString());
         }
         userService.updateOneUser(user);
