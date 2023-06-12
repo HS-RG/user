@@ -50,7 +50,7 @@ public class CollectionServiceImpl implements CollectionService {
         List<File> list1 = collectionMapper.listCollectionByUserId(userId, pageNumber, pageSize);
         List<Object> list = new ArrayList<Object>();
         list1.forEach(file -> {
-            list.add(fileClient.QueryFileByFileId(file));
+            list.add(fileClient.QueryFileByFileId(file).getData());
         });
 
         Map map = new HashMap<String,Integer>();
